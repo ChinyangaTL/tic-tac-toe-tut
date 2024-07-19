@@ -27,6 +27,7 @@ const Board: React.FC<Props> = ({ changePlayer, currentPlayer }) => {
             changePlayer={changePlayer}
             cellIndex={index}
             handleCellClick={handleClick}
+            currentGrid={squares}
           />
         );
       })}

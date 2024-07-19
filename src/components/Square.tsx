@@ -4,12 +4,14 @@ interface Props {
   changePlayer: () => void;
   cellIndex: number;
   handleCellClick: (cellIdx: number) => void;
+  currentGrid: string[];
 }
 
 const Square: React.FC<Props> = ({
   changePlayer,
   cellIndex,
   handleCellClick,
+  currentGrid,
 }) => {
   const [isSquareClicked, setIsSquareClicked] = useState(false);
 
@@ -26,7 +28,8 @@ const Square: React.FC<Props> = ({
       className="square"
       key={cellIndex}
     >
-      {cellIndex}
+      {currentGrid[cellIndex] === "X" && <p>X</p>}
+      {currentGrid[cellIndex] === "O" && <p>O</p>}
     </button>
   );
 };
