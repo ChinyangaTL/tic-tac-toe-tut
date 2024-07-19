@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface Props {
   changePlayer: () => void;
   cellIndex: number;
@@ -9,13 +11,17 @@ const Square: React.FC<Props> = ({
   cellIndex,
   handleCellClick,
 }) => {
+  const [isSquareClicked, setIsSquareClicked] = useState(false);
+
   const handleClick = (cellIdx: number) => {
     handleCellClick(cellIdx);
     changePlayer();
+    setIsSquareClicked(true);
   };
 
   return (
     <button
+      disabled={isSquareClicked}
       onClick={() => handleClick(cellIndex)}
       className="square"
       key={cellIndex}
