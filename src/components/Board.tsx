@@ -1,4 +1,6 @@
+// @ts-nocheck
 import { useState } from "react";
+import Square from "./Square";
 
 interface Props {
   changePlayer: () => void;
@@ -11,9 +13,7 @@ const Board: React.FC<Props> = ({ changePlayer }) => {
     <div className="board">
       {squares.map((square, index) => {
         return (
-          <button onClick={changePlayer} className="square" key={index}>
-            {index}
-          </button>
+          <Square key={index} changePlayer={changePlayer} cellIndex={index} />
         );
       })}
     </div>

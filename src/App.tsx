@@ -1,5 +1,4 @@
-// @ts-nocheck
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./AppStyles.css";
 import Header from "./components/Header";
 import Board from "./components/Board";
