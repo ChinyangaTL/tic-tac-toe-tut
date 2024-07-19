@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
 import "./AppStyles.css";
+import Header from "./components/Header";
 
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(""));
@@ -15,7 +16,7 @@ function App() {
   }, []);
   return (
     <>
-      <p>Current Player is: {currentPlayer}</p>
+      <Header currentPlayer={currentPlayer} />
       <div className="board">
         {squares.map((square, index) => {
           return (
