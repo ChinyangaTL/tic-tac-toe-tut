@@ -1,24 +1,19 @@
-// @ts-nocheck
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./AppStyles.css";
+import Header from "./components/Header";
+import Board from "./components/Board";
 
 function App() {
-  const [squares, setSquares] = useState(Array(9).fill(""));
+  const [currentPlayer, setCurrentPlayer] = useState("X");
 
-  useEffect(() => {
-    console.log(squares);
-  }, []);
+  const changePlayer = () => {
+    currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X");
+  };
+
   return (
     <>
-      <div className="board">
-        {squares.map((square, index) => {
-          return (
-            <button className="square" key={index}>
-              {index}
-            </button>
-          );
-        })}
-      </div>
+      <Header currentPlayer={currentPlayer} />
+      <Board changePlayer={changePlayer} />
     </>
   );
 }
